@@ -1,12 +1,25 @@
 package pro.sky.library.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.util.Objects;
 
+@Entity
+@Table(name= "book")
 public class Book {
 
+    @Id
+    @GeneratedValue
     private long id;
+
     private String name;
     private String author;
+
+    public Book() {
+    }
 
     public long getId() {
         return id;

@@ -9,7 +9,7 @@ import pro.sky.library.service.BookService;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/book")
+@RequestMapping("/books")
 public class BookController {
 
     private BookService bookService;
@@ -42,8 +42,9 @@ public class BookController {
     }
 
     @DeleteMapping("{id}")
-    public Book deleteBook(@PathVariable long id) {
-        return bookService.deleteBook(id);
+    public ResponseEntity<Book> deleteBook(@PathVariable long id) {
+        bookService.deleteBook(id);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping
