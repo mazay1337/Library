@@ -1,9 +1,6 @@
 package pro.sky.library.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -17,6 +14,10 @@ public class Book {
 
     private String name;
     private String author;
+
+    @ManyToOne
+    @JoinColumn(name = "reader_id")
+    private Reader reader;
 
     public Book() {
     }
