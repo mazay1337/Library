@@ -1,6 +1,5 @@
 package pro.sky.library.service;
 
-
 import jakarta.transaction.Transactional;
 import org.springdoc.core.parsers.ReturnTypeParser;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,7 +29,9 @@ public class BookCoverService {
     private final BookService bookService;
     private final BookCoverRepository bookCoverRepository;
 
-    public BookCoverService(BookService bookService, BookCoverRepository bookCoverRepository, ReturnTypeParser genericReturnTypeParser) {
+    public BookCoverService(BookService bookService,
+                            BookCoverRepository bookCoverRepository,
+                            ReturnTypeParser genericReturnTypeParser) {
         this.bookService = bookService;
         this.bookCoverRepository = bookCoverRepository;
         this.genericReturnTypeParser = genericReturnTypeParser;

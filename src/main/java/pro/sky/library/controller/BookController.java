@@ -88,7 +88,7 @@ public class BookController {
     @Operation(summary = "Загружаем обложку книги")
     public ResponseEntity<String> uploadCover(@PathVariable long id, @RequestParam MultipartFile cover) throws IOException {
         if (cover.getSize() >= 1024 * 300) {
-            return  ResponseEntity.badRequest().body("File is too biig");
+            return ResponseEntity.badRequest().body("File is too biig");
         }
 
         bookCoverService.uploadCover(id, cover);
@@ -115,7 +115,7 @@ public class BookController {
         Path path = Path.of(bookCover.getFilePath());
 
         try (InputStream is = Files.newInputStream(path);
-             OutputStream os = response.getOutputStream(); ) {
+             OutputStream os = response.getOutputStream();) {
             response.setContentType(bookCover.getMediaType());
             response.setContentLength((int) bookCover.getFileSize());
             is.transferTo(os);

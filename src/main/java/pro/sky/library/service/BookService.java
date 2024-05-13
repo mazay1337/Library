@@ -5,7 +5,6 @@ import pro.sky.library.entity.Book;
 import pro.sky.library.repository.BookRepository;
 
 import java.util.Collection;
-;
 
 @Service
 public class BookService {

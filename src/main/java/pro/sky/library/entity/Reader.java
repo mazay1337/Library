@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name= "reader")
+@Table(name = "reader")
 public class Reader {
 
     @Id
