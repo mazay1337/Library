@@ -23,7 +23,8 @@ import static java.nio.file.StandardOpenOption.CREATE_NEW;
 public class BookCoverService {
 
     private final ReturnTypeParser genericReturnTypeParser;
-    @Value("covers")
+
+    @Value("${books.cover.dir.path}")
     private String coversDir;
 
     private final BookService bookService;
