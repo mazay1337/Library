@@ -88,7 +88,7 @@ public class BookController {
     @Operation(summary = "Загружаем обложку книги")
     public ResponseEntity<String> uploadCover(@PathVariable long id, @RequestParam MultipartFile cover) throws IOException {
         if (cover.getSize() >= 1024 * 300) {
-            return ResponseEntity.badRequest().body("File is too biig");
+            return ResponseEntity.badRequest().body("File is too big");
         }
 
         bookCoverService.uploadCover(id, cover);
@@ -96,7 +96,7 @@ public class BookController {
     }
 
     @GetMapping(value = "/{id}/cover/preview")
-    @Operation(summary = "Возвращает превьюшку")
+    @Operation(summary = "Возвращает превьюшку (из бд)")
     public ResponseEntity<byte[]> downloadCover(@PathVariable long id) {
         BookCover bookCover = bookCoverService.findBookCover(id);
 
@@ -108,7 +108,7 @@ public class BookController {
     }
 
     @GetMapping(value = "/{id}/cover")
-    @Operation(summary = "Возвращает оригинал обложки")
+    @Operation(summary = "Возвращает оригинал обложки (с диска)")
     public void downloadCover(@PathVariable Long id, HttpServletResponse response) throws IOException {
         BookCover bookCover = bookCoverService.findBookCover(id);
 
@@ -121,4 +121,5 @@ public class BookController {
             is.transferTo(os);
         }
     }
+
 }
